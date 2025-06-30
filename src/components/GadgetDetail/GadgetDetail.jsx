@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Heading from '../Heading/Heading';
-import { addToStoredCart, addToStoredWishList } from '../../utility/addToCart';
+import { addToStoredCart, addToStoredWishList, getStoredWishList } from '../../utility/addToCart';
 
 const GadgetDetail = () => {
 
@@ -10,18 +10,32 @@ const GadgetDetail = () => {
     const id = parseInt(product_id);
     // console.log(typeof product_id, typeof id, typeof data[0].product_id);
 
-    const gadget = data.find(gadget => gadget.product_id === id);
+    const gadgetsDetail = data.find(gadgetDetail => gadgetDetail.product_id === id);
 
-    const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadget;
+    const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetsDetail;
 
-    const handleAddToCart = (id) => {
-        addToStoredCart(id);
+    const [gadget, setGadget] = useState({})
+
+    const [inWishList, setInWishList] = useState(false)
+
+    const handleAddToCart = (product_id) => {
+        addToStoredCart(product_id);
     }
 
-    const handleAddToWishList = (id) => {
-        addToStoredWishList(id);
+    const handleAddToWishList = (product_id) => {
+        addToStoredWishList(product_id);
+        setInWishList(true);
     }
 
+    useEffect(() => {
+        const singleData = data.find(gadget => gadget.product_id == id);
+    setGadget(singleData)
+        const storedWishList = getStoredWishList()
+        const isExist = storedWishList.find(id => id == singleData.product_id)
+        if(isExist) {
+            setInWishList(true)
+        }
+    }, [data, id])
 
     return (
         <div className="relative hero bg-purple-600 h-96 mb-48 md:mb-64 lg:mb-80">
@@ -66,7 +80,7 @@ const GadgetDetail = () => {
                                 Add To Card
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="size-[1.2em]"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
                             </button>
-                            <button onClick={() => handleAddToWishList(product_id)} className="btn btn-circle btn-lg">
+                            <button disabled={inWishList} onClick={() => handleAddToWishList(product_id)} className="btn btn-circle btn-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="size-[1.2em]"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
                             </button>
                         </div>

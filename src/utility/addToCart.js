@@ -12,14 +12,15 @@ const getStoredCart = () => {
     }
 }
 
-const addToStoredCart = (id) => {
+const addToStoredCart = (product_id) => {
     const storedCart = getStoredCart();
-    if (storedCart.includes(id)) {
+    if (storedCart.includes(product_id)) {
         // already exists. Do not add it
-        console.log(id, 'already exists in the cart')
+        console.log(product_id, 'already exists in the cart')
+        toast('already exists in the cart')
     }
     else {
-        storedCart.push(id);
+        storedCart.push(product_id);
         const storedCartStr = JSON.stringify(storedCart);
         localStorage.setItem('cart', storedCartStr);
         toast('This gadget is added to your cart.')
@@ -27,28 +28,30 @@ const addToStoredCart = (id) => {
 }
 
 const getStoredWishList = () => {
-    // wish-list
+//     wish-list
     const storedWishListStr = localStorage.getItem('wish-list');
+
     if(storedWishListStr) {
         const storedWishList = JSON.parse(storedWishListStr);
+        console.log('WishList: ', storedWishList)
         return storedWishList;
     }
     else {
+        console.log('WishList: ', [])
         return [];
     }
 }
 
-const addToStoredWishList = (id) => {
+const addToStoredWishList = (product_id) => {
+    // get all previously saved id of wish list
     const storedWishList = getStoredWishList();
-    if(storedWishList.includes(id)) {
-        // already exists. Do not add it
-        console.log(id, 'already exists in the wish list');
-    }
-    else {
-        storedWishList.push(id);
-        const storedWishListStr = JSON.stringify(storedWishList);
+    const isExist = storedWishList.find(id => id == product_id)
+    if (isExist) return toast('Already exists in the wish list!')
+
+    storedWishList.push(product_id);
+    const storedWishListStr = JSON.stringify(storedWishList);
         localStorage.setItem('wish-list', storedWishListStr);
-    }
+        toast('successfully added to wish list!')
 }
 
-export { addToStoredCart, addToStoredWishList, getStoredCart }
+export { addToStoredCart, addToStoredWishList, getStoredCart, getStoredWishList }
