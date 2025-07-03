@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { getStoredCart } from '../../utility/addToCart';
 import AddedGadget from '../AddedGadget/AddedGadget';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { getTotalCost } from '../../utility/totalCost';
 
 const AddedGadgets = ({ allGadgets }) => {
     const [cart, setCart] = useState([]);
@@ -20,7 +21,7 @@ const AddedGadgets = ({ allGadgets }) => {
     }
 
     // const allGadgets = useLoaderData();
-    console.log(allGadgets);
+    // console.log(allGadgets);
     // const gadgetInCartPrice = gadgetInCart.price;
 
     // console.log('gadgetInCartPrice: ', gadgetInCartPrice);
@@ -40,11 +41,14 @@ const AddedGadgets = ({ allGadgets }) => {
         const gadgetsInCartPrices = gadgetsInCart.map(gadgetInCart => gadgetInCart.price)
         console.log('gadgetsInCartPrices: ', gadgetsInCartPrices)
 
-        const gadgetsInCartTotalCost = gadgetsInCartPrices.map(gadgetInCartPrice => totalCost + gadgetInCartPrice);
+        const gadgetInCartPrice = gadgetsInCartPrices.map(gadgetInCartPrice => gadgetInCartPrice)
+        console.log('gadgetInCartPrice from AddedGadgets: ', gadgetInCartPrice)
 
-        setTotalCost(gadgetsInCartTotalCost);
+        const totalCost = getTotalCost(gadgetsInCart)
+        console.log('totalCost from AddedGadgets: ', totalCost)
+        setTotalCost(totalCost)
 
-    }, [allGadgets, totalCost])
+    }, [allGadgets])
 
 
     return (

@@ -12,15 +12,15 @@ const getStoredCart = () => {
     }
 }
 
-const addToStoredCart = (product_id) => {
+const addToStoredCart = (currentProductId) => {
     const storedCart = getStoredCart();
-    if (storedCart.includes(product_id)) {
+    if (storedCart.includes(currentProductId)) {
         // already exists. Do not add it
-        console.log(product_id, 'already exists in the cart')
+        console.log(currentProductId, 'already exists in the cart')
         toast('already exists in the cart')
     }
     else {
-        storedCart.push(product_id);
+        storedCart.push(currentProductId);
         const storedCartStr = JSON.stringify(storedCart);
         localStorage.setItem('cart', storedCartStr);
         toast('This gadget is added to your cart.')

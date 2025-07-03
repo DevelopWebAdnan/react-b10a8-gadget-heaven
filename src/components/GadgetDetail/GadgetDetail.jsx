@@ -10,11 +10,13 @@ const GadgetDetail = () => {
     const id = parseInt(product_id);
     // console.log(typeof product_id, typeof id, typeof data[0].product_id);
 
-    const gadgetsDetail = data.find(gadgetDetail => gadgetDetail.product_id === id);
+    const gadgetDetail = data.find(gadget => gadget.product_id === id);
 
-    const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetsDetail;
+    const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetDetail;
+    console.log('product_id, typeof product_id, custom property of product_id => currentProductId, typeof currentProductId, gadgetDetail from GadgetDetail, typeof gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
 
     const [gadget, setGadget] = useState({})
+    console.log('gadget state from GadgetDetail: ', gadget)
 
     const [inWishList, setInWishList] = useState(false)
 
