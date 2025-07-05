@@ -1,6 +1,4 @@
-
 import 'react-tabs/style/react-tabs.css';
-
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getStoredCart } from '../../utility/addToCart';
@@ -16,18 +14,12 @@ const AddedGadgets = ({ allGadgets }) => {
     // const handlePurchase = price => {}
 
     const handleSortByPrice = () => {
-        const sorted = [...cart].sort((a, b) => a.price - b.price)
+        const sorted = [...cart].sort((a, b) => b.price - a.price)
         setCart(sorted)
     }
 
     // const allGadgets = useLoaderData();
-    // console.log(allGadgets);
-    // const gadgetInCartPrice = gadgetInCart.price;
-
-    // console.log('gadgetInCartPrice: ', gadgetInCartPrice);
-
-    // const { product_title, product_image, price, description } = gadgetInCart;
-
+    
     useEffect(() => {
         const storedCart = getStoredCart();
 
@@ -41,8 +33,8 @@ const AddedGadgets = ({ allGadgets }) => {
         const gadgetsInCartPrices = gadgetsInCart.map(gadgetInCart => gadgetInCart.price)
         console.log('gadgetsInCartPrices: ', gadgetsInCartPrices)
 
-        const gadgetInCartPrice = gadgetsInCartPrices.map(gadgetInCartPrice => gadgetInCartPrice)
-        console.log('gadgetInCartPrice from AddedGadgets: ', gadgetInCartPrice)
+        // const gadgetInCartPrice = gadgetsInCartPrices.map(gadgetInCartPrice => gadgetInCartPrice)
+        // console.log('gadgetInCartPrice from AddedGadgets: ', gadgetInCartPrice)
 
         const totalCost = getTotalCost(gadgetsInCart)
         console.log('totalCost from AddedGadgets: ', totalCost)

@@ -8,8 +8,6 @@ const AddedGadget = ({ gadgetInCart }) => {
     const { product_title, product_image, price, description } = gadgetInCart;
     return (
         <div className='mb-3 md:mb-6'>
-            {/* <h2 className='text-2xl'>Gadgets in cart: {cart.length}</h2> */}
-            {/* <h2 className='text-2xl'>AddedGadgets in cart: {gadgetInCart.length}</h2> */}
             <div className="card lg:card-side bg-base-100 shadow-sm p-5">
                 <figure className='lg:h-32 lg:w-52 mb-4 lg:mb-0'>
                     <img

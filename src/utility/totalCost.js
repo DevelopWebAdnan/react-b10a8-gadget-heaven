@@ -3,7 +3,7 @@ console.log('Inside totalCost.js')
 const getTotalCost = (gadgetsInCart) => {
     let total = 0;
     for (const gadgetInCart of gadgetsInCart) {
-        console.log('gadgetInCart from getTotalCost.js: ', gadgetInCart)
+        console.log('gadgetInCart: ', gadgetInCart)
         total = total + gadgetInCart.price;
     }
     return total;

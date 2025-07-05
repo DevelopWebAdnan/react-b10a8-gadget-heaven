@@ -12,17 +12,7 @@ const Categories = ({categories}) => {
     const uniqueGadgetsCategories = noDuplicates(categories);
     // console.log('uniqueGadgetsCategories: ', uniqueGadgetsCategories);
 
-
-    // const sixthObjCategory = gadgetsData[7].category;
-    // console.log('sixthObjCategory', sixthObjCategory)
-
     // const [categories, setCategories] = useState([]);
-
-    // const findSixthObjCategory = () => {
-    //     categories.find(category => gadgetsData[7].category === category)
-    //     setCategories(findSixthObjCategory)
-    // }
-    // console.log('findSixthObjCategory', findSixthObjCategory)
 
     return (
         <div>
