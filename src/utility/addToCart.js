@@ -27,6 +27,10 @@ const addToStoredCart = (currentProductId) => {
     }
 }
 
+const removeFavorite = id => {
+    // get all previously saved gadgets data
+}
+
 const getStoredWishList = () => {
 //     wish-list
     const storedWishListStr = localStorage.getItem('wish-list');

@@ -1,4 +1,5 @@
 import React from 'react';
+import { TiDeleteOutline } from "react-icons/ti";
 
 const AddedGadget = ({ gadgetInCart }) => {
     const gadgetInCartPrice = gadgetInCart.price;
@@ -16,7 +17,10 @@ const AddedGadget = ({ gadgetInCart }) => {
                         className="rounded-xl h-full w-full object-cover" />
                 </figure>
                 <div className="card-body">
-                    <h3 className="card-title text-2xl mb-3">{product_title}</h3>
+                    <div>
+                        <h3 className="card-title text-2xl mb-3">{product_title}</h3>
+                        <div onClick={handleRemove(id)}><TiDeleteOutline /></div>
+                    </div>
                     <p className='mb-4 text-lg'>{description}</p>
                     <p className='text-xl font-semibold'>Price: {price}</p>
                     <div className="card-actions justify-end mt-4">
