@@ -1,25 +1,25 @@
 import 'react-tabs/style/react-tabs.css';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getStoredCart } from '../../utility/addToCart';
+import { getStoredCart, removeFromStoredCart } from '../../utility/addToCart';
 import AddedGadget from '../AddedGadget/AddedGadget';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { getTotalCost } from '../../utility/totalCost';
 
 const AddedGadgets = ({ allGadgets }) => {
-    const [cart, setCart] = useState([]);
+    const [gadgetsInCart, setGadgetsInCart] = useState([]);
+    console.log(gadgetsInCart, 'gadgetsInCart state from AddedGadgets');
 
     const [totalCost, setTotalCost] = useState(0);
 
     // const handlePurchase = price => {}
 
     const handleSortByPrice = () => {
-        const sorted = [...cart].sort((a, b) => b.price - a.price)
-        setCart(sorted)
+        const sorted = [...gadgetsInCart].sort((a, b) => b.price - a.price)
+        setGadgetsInCart(sorted)
     }
 
     // const allGadgets = useLoaderData();
-    
+
     useEffect(() => {
         const storedCart = getStoredCart();
 
@@ -28,7 +28,7 @@ const AddedGadgets = ({ allGadgets }) => {
 
         const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id));
 
-        setCart(gadgetsInCart);
+        setGadgetsInCart(gadgetsInCart);
 
         const gadgetsInCartPrices = gadgetsInCart.map(gadgetInCart => gadgetInCart.price)
         console.log('gadgetsInCartPrices: ', gadgetsInCartPrices)
@@ -42,6 +42,24 @@ const AddedGadgets = ({ allGadgets }) => {
 
     }, [allGadgets])
 
+    const handleRemove = product_id => {
+        removeFromStoredCart(product_id);
+        console.log(product_id, 'product_id from handleRemove(product_id)');
+
+        const storedCart = getStoredCart();
+        const storedCartInt = storedCart.map(id => parseInt(id))
+        console.log(storedCart, storedCartInt);
+
+        const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id))
+
+        setGadgetsInCart(gadgetsInCart)
+
+        const totalCost = getTotalCost(gadgetsInCart)
+        console.log('totalCost from AddedGadgets: ', totalCost)
+        setTotalCost(totalCost)
+
+    }
+
 
     return (
         <div>
@@ -52,7 +70,7 @@ const AddedGadgets = ({ allGadgets }) => {
                 </TabList>
 
                 <TabPanel>
-                    <h2 className='text-2xl'>Gadgets in cart: {cart.length}</h2>
+                    <h2 className='text-2xl'>Gadgets in cart: {gadgetsInCart.length}</h2>
                     <div className='flex justify-between items-center mb-4 md:mb-8'>
                         <h4 className='text-2xl font-bold'>Cart</h4>
                         <div className='flex gap-3 md:gap-6 items-center'>
@@ -62,11 +80,10 @@ const AddedGadgets = ({ allGadgets }) => {
                             </div>
                         </div>
                     </div>
-                    <div>
                         {
-                            cart.map(gadgetInCart => <AddedGadget key={gadgetInCart.product_id} gadgetInCart={gadgetInCart}></AddedGadget>)
+                            gadgetsInCart.map(gadgetInCart => <AddedGadget handleRemove={handleRemove} key={gadgetInCart.product_id} gadgetInCart={gadgetInCart}></AddedGadget>)
                         }
-                    </div>
+        
                     {/* <AddedGadgets allGadgets={allGadgets}></AddedGadgets> */}
                 </TabPanel>
                 <TabPanel>

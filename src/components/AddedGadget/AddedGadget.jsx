@@ -1,12 +1,13 @@
 import React from 'react';
 import { TiDeleteOutline } from "react-icons/ti";
 
-const AddedGadget = ({ gadgetInCart }) => {
+const AddedGadget = ({ gadgetInCart, handleRemove }) => {
     const gadgetInCartPrice = gadgetInCart.price;
 
     console.log('gadgetInCartPrice: ', gadgetInCartPrice);
 
-    const { product_title, product_image, price, description } = gadgetInCart;
+    const { product_title, product_image, price, description, product_id } = gadgetInCart;
+    console.log(product_id, 'product_id from AddedGadget');
     return (
         <div className='mb-3 md:mb-6'>
             <div className="card lg:card-side bg-base-100 shadow-sm p-5">
@@ -17,9 +18,9 @@ const AddedGadget = ({ gadgetInCart }) => {
                         className="rounded-xl h-full w-full object-cover" />
                 </figure>
                 <div className="card-body">
-                    <div>
+                    <div className='flex justify-between'>
                         <h3 className="card-title text-2xl mb-3">{product_title}</h3>
-                        <div onClick={handleRemove(id)}><TiDeleteOutline /></div>
+                        <div className=' text-red-400 rounded-full cursor-pointer bg-amber-200' onClick={() => handleRemove(product_id)}><TiDeleteOutline size={36} /></div>
                     </div>
                     <p className='mb-4 text-lg'>{description}</p>
                     <p className='text-xl font-semibold'>Price: {price}</p>

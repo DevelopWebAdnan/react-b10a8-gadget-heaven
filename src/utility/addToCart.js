@@ -27,15 +27,23 @@ const addToStoredCart = (currentProductId) => {
     }
 }
 
-const removeFavorite = id => {
-    // get all previously saved gadgets data
+// remove a gadget from local storage
+const removeFromStoredCart = product_id => {
+    console.log(product_id , 'product_id from removeFromStoredCart(product_id)');
+    // get all previously saved gadget data
+    const storedCart = getStoredCart();
+    console.log(storedCart, 'storedCart from removeFromStoredCart(product_id)');
+    const remaining = storedCart.filter(id => id != product_id)
+    console.log(remaining, 'remaining from removeFromStoredCart(product_id)');
+    localStorage.setItem('cart', JSON.stringify(remaining));
+    toast('Successfully Removed!')
 }
 
 const getStoredWishList = () => {
-//     wish-list
+    //     wish-list
     const storedWishListStr = localStorage.getItem('wish-list');
 
-    if(storedWishListStr) {
+    if (storedWishListStr) {
         const storedWishList = JSON.parse(storedWishListStr);
         console.log('WishList: ', storedWishList)
         return storedWishList;
@@ -54,8 +62,8 @@ const addToStoredWishList = (product_id) => {
 
     storedWishList.push(product_id);
     const storedWishListStr = JSON.stringify(storedWishList);
-        localStorage.setItem('wish-list', storedWishListStr);
-        toast('successfully added to wish list!')
+    localStorage.setItem('wish-list', storedWishListStr);
+    toast('successfully added to wish list!')
 }
 
-export { addToStoredCart, addToStoredWishList, getStoredCart, getStoredWishList }
+export { addToStoredCart, addToStoredWishList, getStoredCart, getStoredWishList, removeFromStoredCart }
