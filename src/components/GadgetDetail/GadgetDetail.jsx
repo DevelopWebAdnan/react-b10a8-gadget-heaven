@@ -59,7 +59,7 @@ const GadgetDetail = () => {
                         <div><button className="btn btn-outline btn-accent btn-md bg-green-100 rounded-4xl">{availability == true ? "In Stock" : "Not In Stock"}</button></div>
                         <p className='mt-4 text-lg opacity-60'>{description}</p>
                         <h5 className="mt-4 mb-3 font-bold text-lg">Specification:</h5>
-                        <ol type='1'>
+                        <ol type='1' className='flex-grow'>
                             {
                                 Specification.map((SingleSpecification, index) =>
                                     <li key={index} className="text-lg opacity-60">{SingleSpecification}</li>
