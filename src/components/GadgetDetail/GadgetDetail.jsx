@@ -21,6 +21,7 @@ const GadgetDetail = () => {
     const [inWishList, setInWishList] = useState(false)
 
     const handleAddToCart = (product_id) => {
+        console.log(product_id, typeof product_id, 'product_id from handleAddToCart in GadgetDetail');
         addToStoredCart(product_id);
     }
 

@@ -13,9 +13,10 @@ const Root = () => {
     return (
         <div className='max-w-7xl mx-auto sora-body'>
             {/* <div className='h-16'></div> */}
-                <Navbar></Navbar>
-            
-            <Outlet></Outlet>
+            <Navbar></Navbar>
+            <div className='bg-base-200'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

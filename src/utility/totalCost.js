@@ -5,6 +5,7 @@ const getTotalCost = (gadgetsInCart) => {
     for (const gadgetInCart of gadgetsInCart) {
         console.log('gadgetInCart: ', gadgetInCart)
         total = total + gadgetInCart.price;
+        console.log(total);
     }
     return total;
 }

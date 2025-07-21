@@ -61,9 +61,9 @@ const Navbar = () => {
                                     {links}
                                 </ul>
                             </div>
-                            <Link to="/" className=" text-xl font-bold text-white">Gadget Heaven</Link>
+                            <Link to="/" className=" text-xl font-bold">Gadget Heaven</Link>
                         </div>
-                        <div className="navbar-center hidden lg:flex text-black">
+                        <div className="navbar-center hidden lg:flex">
                             <ul className="menu menu-horizontal px-1 py-2.5 gap-12">
                                 {links}
                             </ul>
