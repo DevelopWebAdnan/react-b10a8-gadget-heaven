@@ -13,7 +13,7 @@ const GadgetDetail = () => {
     const gadgetDetail = data.find(gadget => gadget.product_id === id);
 
     const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetDetail;
-    console.log('typeof product_id, typeof currentProductId, typeof gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
+    console.log('product_id, currentProductId, gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
 
     const [gadget, setGadget] = useState({})
     console.log('gadget state from GadgetDetail: ', gadget)

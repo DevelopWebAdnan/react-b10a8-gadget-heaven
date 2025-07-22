@@ -2,7 +2,7 @@ import React from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const WishList = ({ gadgetInWishList, handleRemoveWishList }) => {
-    console.log(gadgetInWishList, 'gadgetInWishList');
+    console.log(gadgetInWishList);
 
     const { product_title, product_image, price, description, product_id } = gadgetInWishList;
     console.log(product_id, typeof product_id, 'product_id from WishList');

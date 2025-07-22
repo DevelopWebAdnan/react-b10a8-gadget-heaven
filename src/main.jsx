@@ -15,6 +15,7 @@ import Gadgets from './components/Gadgets/Gadgets';
 import Categories from './components/Categories/Categories';
 import { ToastContainer } from 'react-toastify';
 import GadgetCards from './components/GadgetCards/GadgetCards';
+import ContactUs from './components/ContactUs/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
         element: <AddedGadgets></AddedGadgets>,
         // loader: () => fetch('gadgetsData.json'),
       },
+      {
+        path: 'contactUs',
+        element: <ContactUs></ContactUs>
+      }
     ]
   },
 ]);
