@@ -1,24 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactUs = () => {
+    const [name, setName] = useState('addduuu');
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [error, setError] = useState('')
+
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.name.value)
-        console.log(e.target.email.value)
-        console.log(e.target.phone.value)
-        console.log('form submitted')
+        if(password.length < 6) {
+            setError('Password must be 6 characters or longer')
+        }
+        else {
+            setError('')
+            console.log(name, email, password);
+        }
+    }
+
+    const handleNameChange = e => {
+        setName(e.target.value);
+    }
+
+    const handleEmailChange = e => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = e => {
+        // console.log(e.target.value);
+        setPassword(e.target.value);
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="name" id="" />
+                <input value={name} onChange={handleNameChange} type="text" name="name" />
                 <br />
-                <input type="email" name="email" id="" />
+                <input
+                    onChange={handleEmailChange} type="email" name="email" id="" />
                 <br />
-                <input type="text" name="phone" id="" />
+                <input
+                    onChange={handlePasswordChange} type="password" name="password" required />
                 <br />
                 <input type='submit' value="Submit" />
+                {
+                    error && <p>{error}</p>
+                }
             </form>
         </div>
     );
