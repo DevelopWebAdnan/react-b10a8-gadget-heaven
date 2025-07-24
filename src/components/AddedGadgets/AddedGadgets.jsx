@@ -103,11 +103,11 @@ const AddedGadgets = ({ allGadgets }) => {
 
                 <TabPanel>
                     <h2 className='text-2xl'>Gadgets in cart: {gadgetsInCart.length}</h2>
-                    <div className='flex justify-between items-center mb-4 md:mb-8'>
+                    <div className='md:flex md:justify-between md:items-center mb-4 md:mb-8'>
                         <h4 className='text-2xl font-bold'>Cart</h4>
                         <div className='flex gap-3 md:gap-6 items-center'>
                             <h4 className='text-2xl font-bold'>Total Cost: {totalCost}</h4>
-                            <div className='flex gap-2 md:gap-4'>
+                            <div className='md:flex md:gap-2 lg:gap-4'>
                                 <button onClick={() => handleSortByPrice()} className='btn btn-lg btn-outline text-purple-600 font-semibold rounded-4xl'>Sort by Price</button><button className='btn btn-lg font-medium rounded-4xl bg-purple-600 text-white'>Purchase</button>
                             </div>
                         </div>
