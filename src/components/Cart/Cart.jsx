@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const Cart = ({ gadgetInCart, handleRemoveCart }) => {
@@ -22,9 +22,6 @@ const Cart = ({ gadgetInCart, handleRemoveCart }) => {
                     </div>
                     <p className='mb-4 text-lg'>{description}</p>
                     <p className='text-xl font-semibold'>Price: {price}</p>
-                    {/* <div className="card-actions justify-end mt-4">
-                                <button className="btn btn-primary">Listen</button>
-                            </div> */}
                 </div>
             </div>
         </div>

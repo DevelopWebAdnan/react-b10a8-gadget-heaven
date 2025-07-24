@@ -61,7 +61,7 @@ const AddedGadgets = ({ allGadgets }) => {
         const storedCart = getStoredCart();
 
         const storedCartInt = storedCart.map(product_id => parseInt(product_id));
-        console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt, 'allGadgets: ', allGadgets);
+        console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt);
 
         const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id));
 
@@ -84,7 +84,7 @@ const AddedGadgets = ({ allGadgets }) => {
 
         const storedWishListInt = storedWishList.map(product_id => parseInt(product_id))
 
-        console.log('storedWishList: ', storedWishList, typeof storedWishList, 'storedWishListInt: ', storedWishListInt, typeof storedWishListInt, 'allGadgets: ', allGadgets);
+        console.log('storedWishList: ', storedWishList, typeof storedWishList, 'storedWishListInt: ', storedWishListInt, typeof storedWishListInt);
 
         const gadgetsInWishList = allGadgets.filter(gadget => storedWishListInt.includes(gadget.product_id));
 
