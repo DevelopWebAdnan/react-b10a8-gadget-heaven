@@ -23,15 +23,15 @@ const ContactUs = () => {
 
     return (
         <div>
-            <div className='bg-purple-600 h-96 mb-4 md:mb-6 lg:mb-8'>
+            <div className='bg-purple-600'>
                 <div className="max-w-6xl">
                     <Heading title='Contact Us'></Heading>
-                    <Heading subtitle='Feel free to contact us in case of any query on the gadgets. From the image of the product to specification, price, do not hesitate to ask for details of these.'></Heading>
+                    <Heading subtitle='Feel free to contact us in case of any query on the gadgets. From the availability of the product to specification, price, do not hesitate to ask for details of these.'></Heading>
                 </div>
             </div>
-            <div className='flex justify-center w-screen md:w-3/4 mx-auto'>
-                <form onSubmit={handleSubmit} className='flex-col my-4 md:my-7'>
-                    <input {...nameState} type="text" className='bg-white rounded-xl p-4 md:p-6 my-4 md:my-6 w-full' name="name" />
+            <div className='flex justify-center w-screen md:w-3/4 mx-auto mb-4 md:mb-6 lg:mb-8'>
+                <form onSubmit={handleSubmit} className='flex-col'>
+                    <input {...nameState} type="text" className='bg-white rounded-xl p-4 md:p-6 my-4 md:my-6 w-full' name="name" autoFocus />
                     <br />
                     <input {...emailState} type="email" className='bg-white rounded-lg p-4 md:p-6 w-full' name="email" id="" />
                     <br />

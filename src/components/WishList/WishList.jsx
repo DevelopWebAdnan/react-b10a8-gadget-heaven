@@ -1,4 +1,3 @@
-import React from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const WishList = ({ gadgetInWishList, handleRemoveWishList }) => {
