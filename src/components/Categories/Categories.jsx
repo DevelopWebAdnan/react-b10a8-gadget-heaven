@@ -3,11 +3,9 @@ import Category from '../Category/Category';
 import { noDuplicates } from '../../utility/noDuplicates';
 
 const Categories = ({categories}) => {
-    // console.log('categories from Categories.jsx: ', categories);
-    // // const gadgetsData = useLoaderData();
+
+    // const gadgetsData = useLoaderData();
     // console.log('gadgetsData from Categories.jsx', gadgetsData);
-    // const data[5] =
-    //     { product_id: 6, product_title: 'Acer Swift 3', product_image: 'https://i.ibb.co/WpqLDh42/austin-poon-JO-S6ew-Bq-Ak-unsplash.jpg', category: 'laptop', price: 699, … }
 
     const uniqueGadgetsCategories = noDuplicates(categories);
     // console.log('uniqueGadgetsCategories: ', uniqueGadgetsCategories);

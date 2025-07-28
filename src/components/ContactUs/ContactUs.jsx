@@ -23,13 +23,14 @@ const ContactUs = () => {
 
     return (
         <div>
-            <div className='bg-purple-600'>
-                <div className="max-w-6xl">
+            <div className="bg-purple-600 mb-6 md:mb-12">
+                <div className="max-w-6xl mx-auto p-4">
                     <Heading title='Contact Us'></Heading>
-                    <Heading subtitle='Feel free to contact us in case of any query on the gadgets. From the availability of the product to specification, price, do not hesitate to ask for details of these.'></Heading>
+                    <Heading subtitle='Please fill out the form in this section to inbox us. Feel free to inbox us in case of any query on the gadgets. From the availability of the product to specification, price, do not hesitate to ask for details of these.'></Heading>
                 </div>
             </div>
-            <div className='flex justify-center w-screen md:w-3/4 mx-auto mb-4 md:mb-6 lg:mb-8'>
+
+            <div className='flex justify-center w-screen md:w-3/4 mx-auto'>
                 <form onSubmit={handleSubmit} className='flex-col'>
                     <input {...nameState} type="text" className='bg-white rounded-xl p-4 md:p-6 my-4 md:my-6 w-full' name="name" autoFocus />
                     <br />
@@ -40,7 +41,7 @@ const ContactUs = () => {
                     <textarea {...textareaState} className='bg-white rounded-sm font-semibold p-4 md:p-6 w-full' name="message" cols="30" rows="20" placeholder='Message'></textarea>
                     <br />
                     <div className='mt-4 md:mt-6 text-center'>
-                        <input className='btn btn-lg bg-purple-600 text-white' type='submit' value="Submit" />
+                        <input className='btn btn-lg btn-outline rounded-2xl text-amber-400' type='submit' value="Message" />
                     </div>
                     {
                         error && <p className='text-red-500 font-black'>{error}</p>

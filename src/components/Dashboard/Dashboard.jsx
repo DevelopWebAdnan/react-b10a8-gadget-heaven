@@ -13,7 +13,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className="hero bg-purple-600">
-                <div className="hero-content text-center">
+                <div className="hero-content">
                     <div className="max-w-6xl">
                         <Heading title='Dashboard'></Heading>
                         <Heading subtitle='Here in the Dashboard you will find the gadgets you want to purchase and have added to the cart. Besides you will also find the gadgets you have added to the wishlist.'></Heading>

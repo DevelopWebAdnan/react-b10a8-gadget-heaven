@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Gadget from '../Gadget/Gadget';
 
