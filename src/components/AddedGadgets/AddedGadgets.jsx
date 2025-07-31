@@ -1,11 +1,11 @@
 import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from 'react';
 import { getStoredCart, getStoredWishList, removeFromStoredCart, removeFromStoredWishList } from '../../utility/addToCart';
-import AddedGadget from '../AddedGadget/AddedGadget';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { getTotalCost } from '../../utility/totalCost';
 import WishList from '../WishList/WishList';
 import Cart from '../Cart/Cart';
+import modalImg from '../../assets/Group.png';
 
 const AddedGadgets = ({ allGadgets }) => {
     const [gadgetsInCart, setGadgetsInCart] = useState([]);
@@ -108,25 +108,41 @@ const AddedGadgets = ({ allGadgets }) => {
                         <div className='flex gap-3 md:gap-6 items-center'>
                             <h4 className='text-2xl font-bold'>Total Cost: {totalCost}</h4>
                             <div className='md:flex md:gap-2 lg:gap-4'>
-                                <button onClick={() => handleSortByPrice()} className='btn btn-lg btn-outline text-purple-600 font-semibold rounded-4xl'>Sort by Price</button><button className='btn btn-lg font-medium rounded-4xl bg-purple-600 text-white'>Purchase</button>
+                                    <button onClick={() => handleSortByPrice()} className='btn btn-lg btn-outline text-purple-600 font-semibold rounded-4xl'>Sort by Price</button><button onClick={() => document.getElementById('customModal').showModal()} className='btn btn-lg font-medium rounded-4xl bg-purple-600 text-white'>Purchase</button>
                             </div>
                         </div>
                     </div>
-                        {
-                            gadgetsInCart.map(gadgetInCart => <Cart handleRemoveCart={handleRemoveCart} key={gadgetInCart.product_id} gadgetInCart={gadgetInCart}></Cart>)
-                        }
-        
+                    {
+                        gadgetsInCart.map(gadgetInCart => <Cart handleRemoveCart={handleRemoveCart} key={gadgetInCart.product_id} gadgetInCart={gadgetInCart}></Cart>)
+                    }
+
                     {/* <AddedGadgets allGadgets={allGadgets}></AddedGadgets> */}
                 </TabPanel>
                 <TabPanel>
                     <h2 className='text-2xl'>Gadgets in wishlist: {gadgetsInWishList.length}</h2>
                     {/* <div className='flex justify-between items-center mb-4 md:mb-8'></div> */}
-                        <h4 className='text-2xl font-bold mb-4 md:mb-8'>WishList</h4>
-                        {
-                            gadgetsInWishList.map(gadgetInWishList => <WishList handleRemoveWishList={handleRemoveWishList} key={gadgetInWishList.product_id} gadgetInWishList={gadgetInWishList}></WishList>)
-                        }
+                    <h4 className='text-2xl font-bold mb-4 md:mb-8'>WishList</h4>
+                    {
+                        gadgetsInWishList.map(gadgetInWishList => <WishList handleRemoveWishList={handleRemoveWishList} key={gadgetInWishList.product_id} gadgetInWishList={gadgetInWishList}></WishList>)
+                    }
                 </TabPanel>
             </Tabs>
+
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="customModal" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box text-center">
+                    <img src={modalImg} className='w-16 mx-auto' alt="" />
+                    <h3 className="font-bold text-2xl my-6">Payment Successful</h3>
+                    <p className="font-medium">Thanks for purchasing</p>
+                    <p className=" font-medium">Total: {totalCost}</p>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
     );
 };
