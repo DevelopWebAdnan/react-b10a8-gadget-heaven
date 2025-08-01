@@ -78,4 +78,8 @@ const removeFromStoredWishList = product_id => {
     toast('Successfully removed from wish list!')
 }
 
-export { addToStoredCart, addToStoredWishList, getStoredCart, getStoredWishList, removeFromStoredCart, removeFromStoredWishList }
+const makeCartEmpty = () => {
+    localStorage.setItem('cart', []);
+}
+
+export { addToStoredCart, addToStoredWishList, getStoredCart, getStoredWishList, removeFromStoredCart, removeFromStoredWishList, makeCartEmpty }

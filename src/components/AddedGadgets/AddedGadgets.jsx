@@ -1,20 +1,24 @@
 import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from 'react';
-import { getStoredCart, getStoredWishList, removeFromStoredCart, removeFromStoredWishList } from '../../utility/addToCart';
+import { getStoredCart, getStoredWishList, makeCartEmpty, removeFromStoredCart, removeFromStoredWishList } from '../../utility/addToCart';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { getTotalCost } from '../../utility/totalCost';
 import WishList from '../WishList/WishList';
 import Cart from '../Cart/Cart';
 import modalImg from '../../assets/Group.png';
+import { useNavigate } from 'react-router-dom';
 
 const AddedGadgets = ({ allGadgets }) => {
     const [gadgetsInCart, setGadgetsInCart] = useState([]);
 
     const [gadgetsInWishList, setGadgetsInWishList] = useState([]);
 
-    console.log(gadgetsInCart, gadgetsInWishList, 'gadgetsInCart, gadgetsInWishList states from AddedGadgets');
+    console.log('gadgetsInCart, gadgetsInWishList states', gadgetsInCart, gadgetsInWishList);
 
     const [totalCost, setTotalCost] = useState(0);
+
+    const [cartIsEmpty, setCartIsEmpty] = useState(false);
+    console.log('cartIsEmpty', cartIsEmpty)
 
     // const handlePurchase = price => {}
 
@@ -41,6 +45,10 @@ const AddedGadgets = ({ allGadgets }) => {
         const totalCost = getTotalCost(gadgetsInCart)
         console.log('totalCost from AddedGadgets: ', totalCost)
         setTotalCost(totalCost)
+
+        if (Object.keys(gadgetsInCart).length === 0 && totalCost === 0) {
+            setCartIsEmpty(true)
+        }
     }
 
     const handleRemoveWishList = product_id => {
@@ -59,24 +67,27 @@ const AddedGadgets = ({ allGadgets }) => {
 
     useEffect(() => {
         const storedCart = getStoredCart();
-
+        
         const storedCartInt = storedCart.map(product_id => parseInt(product_id));
         console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt);
-
+        
         const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id));
-
+        
         setGadgetsInCart(gadgetsInCart);
-
+        
         const gadgetsInCartPrices = gadgetsInCart.map(gadgetInCart => gadgetInCart.price)
         console.log('gadgetsInCartPrices: ', gadgetsInCartPrices)
-
+        
         // const gadgetInCartPrice = gadgetsInCartPrices.map(gadgetInCartPrice => gadgetInCartPrice)
         // console.log('gadgetInCartPrice from AddedGadgets: ', gadgetInCartPrice)
-
+        
         const totalCost = getTotalCost(gadgetsInCart)
         console.log('totalCost from AddedGadgets: ', totalCost)
         setTotalCost(totalCost)
-
+        
+        if (Object.keys(gadgetsInCart).length === 0 && totalCost === 0) {
+            setCartIsEmpty(true)
+        }
     }, [allGadgets])
 
     useEffect(() => {
@@ -92,7 +103,15 @@ const AddedGadgets = ({ allGadgets }) => {
 
     }, [allGadgets])
 
+    const navigate = useNavigate();
 
+    const handleClose = () => {
+        navigate('/', {replace: true});
+        makeCartEmpty();
+        console.log('gadgetsInCart from handleClose()', gadgetsInCart)
+    }
+
+    
     return (
         <div>
             <Tabs>
@@ -108,7 +127,7 @@ const AddedGadgets = ({ allGadgets }) => {
                         <div className='flex gap-3 md:gap-6 items-center'>
                             <h4 className='text-2xl font-bold'>Total Cost: {totalCost}</h4>
                             <div className='md:flex md:gap-2 lg:gap-4'>
-                                    <button onClick={() => handleSortByPrice()} className='btn btn-lg btn-outline text-purple-600 font-semibold rounded-4xl'>Sort by Price</button><button onClick={() => document.getElementById('customModal').showModal()} className='btn btn-lg font-medium rounded-4xl bg-purple-600 text-white'>Purchase</button>
+                                <button onClick={() => handleSortByPrice()} className='btn btn-lg btn-outline text-purple-600 font-semibold rounded-4xl'>Sort by Price</button><button disabled={cartIsEmpty} onClick={() => document.getElementById('customModal').showModal()} className='btn btn-lg font-medium rounded-4xl bg-purple-600 text-white'>Purchase</button>
                             </div>
                         </div>
                     </div>
@@ -138,7 +157,7 @@ const AddedGadgets = ({ allGadgets }) => {
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button onClick={() => handleClose()} className="btn">Close</button>
                         </form>
                     </div>
                 </div>
