@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Heading = ({ title, subtitle }) => {
     return (
         <div className='text-center text-white mb-4 md:mb-8'>

@@ -32,7 +32,7 @@ const Navbar = () => {
                                     {links}
                                 </ul>
                             </div>
-                            <Link to="/" className=" text-xl font-bold text-white">Gadget Heaven</Link>
+                            <Link to="/" className="md:text-lg lg:text-xl font-bold text-white">Gadget Heaven</Link>
                         </div>
                         <div className="navbar-center hidden lg:flex text-white">
                             <ul className="menu menu-horizontal px-1 py-2.5 gap-12">

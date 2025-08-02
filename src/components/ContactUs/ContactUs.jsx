@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import useInputState from '../../utility/useInputState';
 import Heading from '../Heading/Heading';

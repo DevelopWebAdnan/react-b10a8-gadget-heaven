@@ -14,7 +14,7 @@ const Root = () => {
         <div className='max-w-7xl mx-auto sora-body'>
             {/* <div className='h-16'></div> */}
             <Navbar></Navbar>
-            <div className='bg-base-200'>
+            <div className='bg-base-200 mb-24'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

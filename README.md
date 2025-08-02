@@ -8,7 +8,7 @@
 -   Components
     Routes
     Links and NavLinks
-    Hooks: useState, useEffect, useLoader, useLocation
+    Hooks: useState, useEffect, useLoader, useParams, useLocation, useNavigation, and a custom hook
 
 ## What you have used for handling and managing data (context API/local storage)
 - Local Storage

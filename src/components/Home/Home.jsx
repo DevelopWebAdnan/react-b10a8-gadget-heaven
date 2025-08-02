@@ -10,8 +10,10 @@ const Home = () => {
 
     return (
         <div>
-            <Banner></Banner>
-            <h2 className="text-4xl font-bold text-center mb-8 md:mb-12">Explore Cutting-Edge Gadgets</h2>
+            <div className='mb-10 md:mb-96 lg:mb-80'>
+                <Banner></Banner>
+            </div>
+            <h2 className="text-4xl font-bold text-center mb-6 md:mb-12">Explore Cutting-Edge Gadgets</h2>
             <div className='lg:flex gap-6'>
                 <Categories categories={categories}></Categories>
                 <Outlet></Outlet>

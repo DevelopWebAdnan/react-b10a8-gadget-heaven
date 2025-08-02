@@ -1,4 +1,4 @@
-// hook
+// custom hook
 
 import { useState } from "react"
 

@@ -1,8 +1,6 @@
-import React from 'react';
-
 const Footer = () => {
   return (
-    <footer className='footer footer-horizontal footer-center px-40 py-24'>
+    <footer className='footer footer-horizontal footer-center px-5 md:px-20 lg:px-40 py-24'>
       <div>
               <h2 className="text-3xl font-bold">Gadget Heaven</h2>
               <p>Leading the way in cutting-edge technology and innovation.</p>
@@ -15,7 +13,7 @@ const Footer = () => {
           <a className="link link-hover">Shipping & Delivery</a>
           <a className="link link-hover">Returns</a>
         </nav>
-        <nav className=''>
+        <nav>
           <h6 className="font-bold text-lg">Company</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Careers</a>
