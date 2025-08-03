@@ -16,7 +16,7 @@ const addToStoredCart = (currentProductId) => {
     const storedCart = getStoredCart();
     if (storedCart.includes(currentProductId)) {
         // already exists. Do not add it
-        console.log(currentProductId, 'already exists in the cart')
+        // console.log(currentProductId, 'already exists in the cart')
         toast('already exists in the cart')
     }
     else {
@@ -29,12 +29,12 @@ const addToStoredCart = (currentProductId) => {
 
 // remove a gadget from local storage
 const removeFromStoredCart = product_id => {
-    console.log(product_id, typeof product_id, 'product_id from removeFromStoredCart(product_id)');
+   
     // get all previously saved gadget data
     const storedCart = getStoredCart();
-    console.log(storedCart, typeof storedCart, 'storedCart from removeFromStoredCart(product_id)');
+    
     const remaining = storedCart.filter(id => id != product_id)
-    console.log(remaining, typeof remaining, 'remaining from removeFromStoredCart(product_id)');
+    
     localStorage.setItem('cart', JSON.stringify(remaining));
     toast('Successfully Removed!')
 }
@@ -68,12 +68,12 @@ const addToStoredWishList = (product_id) => {
 
 // remove a gadget from local storage
 const removeFromStoredWishList = product_id => {
-    console.log(product_id, typeof product_id, 'product_id from removeFromStoredWishList(product_id)');
+    
     // get all previously saved gadget data
     const storedWishList = getStoredWishList();
-    console.log(storedWishList, typeof storedWishList, 'storedWishList from removeFromStoredWishList(product_id)');
+    
     const remaining = storedWishList.filter(id => id != product_id)
-    console.log(remaining, typeof remaining, 'remaining from removeFromStoredWishList(product_id)');
+    
     localStorage.setItem('wish-list', JSON.stringify(remaining));
     toast('Successfully removed from wish list!')
 }

@@ -1,7 +1,7 @@
 console.log('Inside noDuplicates.js')
 
 const noDuplicates = (categories) => {
-    // console.log('gadgetsData passed as argument to the parameter, categories: ', categories);
+   
     const gadgetsCategories = [];
 
     for (const gadgetsObj of categories) {

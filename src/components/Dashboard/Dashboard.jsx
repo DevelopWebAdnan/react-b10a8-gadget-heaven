@@ -5,7 +5,7 @@ import AddedGadgets from '../AddedGadgets/AddedGadgets';
 
 const Dashboard = () => {
     const allGadgets = useLoaderData();
-    console.log(allGadgets);
+    // console.log(allGadgets);
 
     return (
         <div>

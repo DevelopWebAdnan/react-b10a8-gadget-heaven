@@ -13,37 +13,31 @@ const AddedGadgets = ({ allGadgets }) => {
 
     const [gadgetsInWishList, setGadgetsInWishList] = useState([]);
 
-    console.log('gadgetsInCart, gadgetsInWishList states', gadgetsInCart, gadgetsInWishList);
+    // console.log('gadgetsInCart, gadgetsInWishList states', gadgetsInCart, gadgetsInWishList);
 
     const [totalCost, setTotalCost] = useState(0);
 
     const [cartIsEmpty, setCartIsEmpty] = useState(false);
     console.log('cartIsEmpty', cartIsEmpty)
 
-    // const handlePurchase = price => {}
-
     const handleSortByPrice = () => {
         const sorted = [...gadgetsInCart].sort((a, b) => b.price - a.price)
         setGadgetsInCart(sorted)
     }
 
-    // const allGadgets = useLoaderData();
-
     const handleRemoveCart = product_id => {
         removeFromStoredCart(product_id);
-        console.log(product_id, typeof product_id, 'product_id from handleRemoveCart(product_id)');
 
         const storedCart = getStoredCart();
         const storedCartInt = storedCart.map(id => parseInt(id))
-        console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt);
 
         const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id))
-        console.log('gadgetsInCart: ', gadgetsInCart, typeof gadgetsInCart)
+        // console.log('gadgetsInCart: ', gadgetsInCart, typeof gadgetsInCart)
 
         setGadgetsInCart(gadgetsInCart)
 
         const totalCost = getTotalCost(gadgetsInCart)
-        console.log('totalCost from AddedGadgets: ', totalCost)
+        // console.log('totalCost from AddedGadgets: ', totalCost)
         setTotalCost(totalCost)
 
         if (Object.keys(gadgetsInCart).length === 0 && totalCost === 0) {
@@ -53,15 +47,12 @@ const AddedGadgets = ({ allGadgets }) => {
 
     const handleRemoveWishList = product_id => {
         removeFromStoredWishList(product_id);
-        console.log(product_id, typeof product_id, 'product_id from handleRemoveWishList(product_id)');
 
         const storedWishList = getStoredWishList();
         const storedWishListInt = storedWishList.map(id => parseInt(id))
-        console.log('storedWishList: ', storedWishList, typeof storedWishList, 'storedWishListInt: ', storedWishListInt, typeof storedWishListInt);
-
+      
         const gadgetsInWishList = allGadgets.filter(gadget => storedWishListInt.includes(gadget.product_id))
-        console.log('gadgetsInWishList: ', gadgetsInWishList, typeof gadgetsInWishList);
-
+        
         setGadgetsInWishList(gadgetsInWishList)
     }
 
@@ -75,14 +66,8 @@ const AddedGadgets = ({ allGadgets }) => {
         
         setGadgetsInCart(gadgetsInCart);
         
-        const gadgetsInCartPrices = gadgetsInCart.map(gadgetInCart => gadgetInCart.price)
-        console.log('gadgetsInCartPrices: ', gadgetsInCartPrices)
-        
-        // const gadgetInCartPrice = gadgetsInCartPrices.map(gadgetInCartPrice => gadgetInCartPrice)
-        // console.log('gadgetInCartPrice from AddedGadgets: ', gadgetInCartPrice)
-        
         const totalCost = getTotalCost(gadgetsInCart)
-        console.log('totalCost from AddedGadgets: ', totalCost)
+        // console.log('totalCost from AddedGadgets: ', totalCost)
         setTotalCost(totalCost)
         
         if (Object.keys(gadgetsInCart).length === 0 && totalCost === 0) {
@@ -95,8 +80,6 @@ const AddedGadgets = ({ allGadgets }) => {
 
         const storedWishListInt = storedWishList.map(product_id => parseInt(product_id))
 
-        console.log('storedWishList: ', storedWishList, typeof storedWishList, 'storedWishListInt: ', storedWishListInt, typeof storedWishListInt);
-
         const gadgetsInWishList = allGadgets.filter(gadget => storedWishListInt.includes(gadget.product_id));
 
         setGadgetsInWishList(gadgetsInWishList);
@@ -108,7 +91,7 @@ const AddedGadgets = ({ allGadgets }) => {
     const handleClose = () => {
         navigate('/', {replace: true});
         makeCartEmpty();
-        console.log('gadgetsInCart from handleClose()', gadgetsInCart)
+        // console.log('gadgetsInCart from handleClose()', gadgetsInCart)
     }
 
     
@@ -134,12 +117,8 @@ const AddedGadgets = ({ allGadgets }) => {
                     {
                         gadgetsInCart.map(gadgetInCart => <Cart handleRemoveCart={handleRemoveCart} key={gadgetInCart.product_id} gadgetInCart={gadgetInCart}></Cart>)
                     }
-
-                    {/* <AddedGadgets allGadgets={allGadgets}></AddedGadgets> */}
                 </TabPanel>
                 <TabPanel>
-                    <h2 className='text-2xl'>Gadgets in wishlist: {gadgetsInWishList.length}</h2>
-                    {/* <div className='flex justify-between items-center mb-4 md:mb-8'></div> */}
                     <h4 className='text-2xl font-bold mb-4 md:mb-8'>WishList</h4>
                     {
                         gadgetsInWishList.map(gadgetInWishList => <WishList handleRemoveWishList={handleRemoveWishList} key={gadgetInWishList.product_id} gadgetInWishList={gadgetInWishList}></WishList>)

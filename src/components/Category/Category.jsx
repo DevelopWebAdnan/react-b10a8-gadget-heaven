@@ -2,13 +2,9 @@ import { NavLink } from 'react-router-dom';
 import './Category.css';
 
 const Category = ({ uniqueGadgetsCategories }) => {
-    // const navigate = useNavigate()
-    // console.log('uniqueGadgetsCategories props from Category.jsx', uniqueGadgetsCategories);
 
     return (
         <div>
-            <h2 className='text-2xl font-bold'>Category.jsx</h2>
-
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -27,9 +23,6 @@ const Category = ({ uniqueGadgetsCategories }) => {
                                     <li key={uniqueGadgetCategory}> <NavLink to={`/category/${uniqueGadgetCategory}`}>{uniqueGadgetCategory}</NavLink></li>
                                 ))
                             }
-                        {/* {
-                            <li key={category.product_id}><Link to={`/category/${category.category}`}>{category.category}</Link></li>
-                        } */}
                     </ul>
                 </div>
             </div>

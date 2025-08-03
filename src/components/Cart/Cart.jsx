@@ -1,11 +1,10 @@
-
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const Cart = ({ gadgetInCart, handleRemoveCart }) => {
-    console.log(gadgetInCart)
+    // console.log(gadgetInCart)
 
     const { product_title, product_image, price, description, product_id } = gadgetInCart;
-    console.log(product_id, typeof product_id, 'product_id from Cart');
+
     return (
         <div className='mb-3 md:mb-6'>
             <div className="card lg:card-side bg-white p-5">

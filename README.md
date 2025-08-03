@@ -9,11 +9,13 @@
     Routes
     Links and NavLinks
     Hooks: useState, useEffect, useLoader, useParams, useLocation, useNavigation, and a custom hook
+    Data types: array, object, string, boolean, number
+    Functions: map, filter, find
 
-## What you have used for handling and managing data (context API/local storage)
+# What you have used for handling and managing data (context API/local storage)
 - Local Storage
 
-## 5 features of my website/project
+# 5 features of my website/project
 1. This is a SPA- Single Page Application created with React JavaScript Library.
 2. React Router is used for the first time (by me) for navigating between pages. Also the background color of the navbar changes when a user navigates to a different route/page from the Home page.
 3. For the first time, I have used Local Storage for handling and managing data.

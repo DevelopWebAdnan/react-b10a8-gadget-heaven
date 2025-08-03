@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Heading from '../Heading/Heading';
 import { addToStoredCart, addToStoredWishList, getStoredWishList } from '../../utility/addToCart';
@@ -13,7 +13,7 @@ const GadgetDetail = () => {
     const gadgetDetail = data.find(gadget => gadget.product_id === id);
 
     const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetDetail;
-    console.log('product_id, currentProductId, gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
+    // console.log('product_id, currentProductId, gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
 
     const [gadget, setGadget] = useState({})
     console.log('gadget state from GadgetDetail: ', gadget)
@@ -21,7 +21,7 @@ const GadgetDetail = () => {
     const [inWishList, setInWishList] = useState(false)
 
     const handleAddToCart = (product_id) => {
-        console.log(product_id, typeof product_id, 'product_id from handleAddToCart in GadgetDetail');
+        // console.log(product_id, typeof product_id, 'product_id from handleAddToCart in GadgetDetail');
         addToStoredCart(product_id);
     }
 
@@ -50,7 +50,7 @@ const GadgetDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className=" card lg:card-side bg-white lg:h-[570px]">
+            <div className=" card lg:card-side bg-white">
                 <figure className='lg:max-w-md pt-4 lg:pt-8 px-4 lg:px-8 lg:pr-0 lg:pb-8 h-[500px] lg:h-auto'>
                     <img
                         src={product_image}

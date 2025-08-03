@@ -58,18 +58,10 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
         loader: () => fetch('../gadgetsData.json'),
-        // children: [
-        //   {
-        //     path: 'addedGadgets',
-        //     element: <AddedGadgets></AddedGadgets>,
-        //     loader: () => fetch('gadgetsData.json'),
-        //   },
-        // ],
       },
       {
         path: 'addedGadgets',
         element: <AddedGadgets></AddedGadgets>,
-        // loader: () => fetch('gadgetsData.json'),
       },
       {
         path: 'contactUs',

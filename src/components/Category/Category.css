@@ -1,19 +1,10 @@
 .drawer-side ul li {
     margin-bottom: 24px;
     border-radius: 32px;
-    /* background-color: black; */
-    /* opacity: 5%; */
-    /* padding: 22px 13px; */
-
 }
-/* .drawer-side ul li a {
-    color: black;
-    opacity: 60%;
-    font-size: 18px;
-} */
+
 .drawer-side ul li a.active {
     color: white;
     background-color: blueviolet;
     font-weight: 800;
 }
-/* btn-lg font-bold rounded-4xl bg-purple-600 text-white */

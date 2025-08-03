@@ -1,20 +1,15 @@
-
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
     const { pathname } = useLocation();
     console.log(pathname);
-    // const pathName = pathname === '/' ? "bg-purple-600" : "bg-white";
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/statistics">Statistics</NavLink></li>
         <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         <li><NavLink to="/contactUs">Contact Us</NavLink></li>
     </>
-    //     const primaryNavBg = {
-    //         backgroundColor : 'purple'
-    // }
 
     return (
         <div>

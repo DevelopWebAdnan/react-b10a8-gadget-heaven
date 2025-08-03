@@ -1,15 +1,10 @@
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const WishList = ({ gadgetInWishList, handleRemoveWishList }) => {
-    console.log(gadgetInWishList);
+    // console.log(gadgetInWishList);
 
     const { product_title, product_image, price, description, product_id } = gadgetInWishList;
-    console.log(product_id, typeof product_id, 'product_id from WishList');
-
-    // const handleAddToCart = (product_id) => {
-    //     console.log(product_id, typeof product_id, 'product_id from handleAddToCart in WishList');
-    //     addToStoredCart(product_id);
-    // }
+    // console.log(product_id, typeof product_id, 'product_id from WishList');
 
     return (
         <div className='mb-3 md:mb-6'>
