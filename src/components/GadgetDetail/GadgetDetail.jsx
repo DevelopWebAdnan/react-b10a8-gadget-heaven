@@ -13,7 +13,11 @@ const GadgetDetail = () => {
     const gadgetDetail = data.find(gadget => gadget.product_id === id);
 
     const { product_id: currentProductId, product_image, product_title, price, availability, Specification, rating, description } = gadgetDetail;
-    // console.log('product_id, currentProductId, gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail, typeof gadgetDetail)
+    console.log('product_id, currentProductId, gadgetDetail: ', product_id, typeof product_id, currentProductId, typeof currentProductId, gadgetDetail)
+
+    const listItems = Specification.map((SingleSpecification, index) =>
+        <li key={index} className="text-lg opacity-60">{SingleSpecification}</li>
+    )
 
     const [gadget, setGadget] = useState({})
     console.log('gadget state from GadgetDetail: ', gadget)
@@ -63,12 +67,8 @@ const GadgetDetail = () => {
                     <div><button className="btn btn-outline btn-accent btn-md bg-green-100 rounded-4xl">{availability == true ? "In Stock" : "Not In Stock"}</button></div>
                     <p className='mt-4 text-lg opacity-60'>{description}</p>
                     <h5 className="mt-4 mb-3 font-bold text-lg">Specification:</h5>
-                    <ol type='1' className='flex-grow'>
-                        {
-                            Specification.map((SingleSpecification, index) =>
-                                <li key={index} className="text-lg opacity-60">{SingleSpecification}</li>
-                            )
-                        }
+                    <ol className='flex-grow'>
+                        {listItems}
                     </ol>
                     <h5 className='mt-4 mb-3 font-bold text-lg'>Rating</h5>
                     <div className='flex items-center gap-4'>

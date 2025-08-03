@@ -10,7 +10,8 @@
     Links and NavLinks
     Hooks: useState, useEffect, useLoader, useParams, useLocation, useNavigation, and a custom hook
     Data types: array, object, string, boolean, number
-    Functions: map, filter, find
+    Arrow functions in plenty
+    Functions (to loop through the data of an array): map, filter, find
 
 # What you have used for handling and managing data (context API/local storage)
 - Local Storage
