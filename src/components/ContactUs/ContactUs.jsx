@@ -41,7 +41,7 @@ const ContactUs = () => {
                     <textarea {...textareaState} className='bg-white rounded-sm font-semibold p-4 md:p-6 w-full' name="message" cols="30" rows="20" placeholder='Message'></textarea>
                     <br />
                     <div className='mt-4 md:mt-6 text-center'>
-                        <input className='btn btn-lg btn-outline rounded-2xl text-amber-400' type='submit' value="Message" />
+                        <input className='btn btn-lg btn-outline rounded-2xl text-amber-600' type='submit' value="Message" />
                     </div>
                     {
                         error && <p className='text-red-500 font-black'>{error}</p>

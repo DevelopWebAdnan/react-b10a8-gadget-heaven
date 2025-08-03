@@ -18,7 +18,7 @@ const WishList = ({ gadgetInWishList, handleRemoveWishList }) => {
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <h3 className="card-title text-2xl mb-3">{product_title}</h3>
-                        <div className=' text-red-400 text-4xl rounded-full cursor-pointer bg-amber-100' onClick={() => handleRemoveWishList(product_id)}><TiDeleteOutline /></div>
+                        <div className=' text-red-600 text-4xl rounded-full cursor-pointer bg-amber-300' onClick={() => handleRemoveWishList(product_id)}><TiDeleteOutline /></div>
                     </div>
                     <p className='mb-4 text-lg'>{description}</p>
                     <p className='text-xl font-semibold'>Price: {price}</p>

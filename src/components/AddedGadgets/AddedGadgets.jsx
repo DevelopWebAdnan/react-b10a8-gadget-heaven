@@ -13,8 +13,6 @@ const AddedGadgets = ({ allGadgets }) => {
 
     const [gadgetsInWishList, setGadgetsInWishList] = useState([]);
 
-    // console.log('gadgetsInCart, gadgetsInWishList states', gadgetsInCart, gadgetsInWishList);
-
     const [totalCost, setTotalCost] = useState(0);
 
     const [cartIsEmpty, setCartIsEmpty] = useState(false);
@@ -60,7 +58,7 @@ const AddedGadgets = ({ allGadgets }) => {
         const storedCart = getStoredCart();
         
         const storedCartInt = storedCart.map(product_id => parseInt(product_id));
-        console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt);
+        // console.log('storedCart: ', storedCart, typeof storedCart, 'storedCartInt: ', storedCartInt, typeof storedCartInt);
         
         const gadgetsInCart = allGadgets.filter(gadget => storedCartInt.includes(gadget.product_id));
         

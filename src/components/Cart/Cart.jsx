@@ -17,7 +17,7 @@ const Cart = ({ gadgetInCart, handleRemoveCart }) => {
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <h3 className="card-title text-2xl mb-3">{product_title}</h3>
-                        <div className=' text-red-400 rounded-full cursor-pointer bg-amber-100' onClick={() => handleRemoveCart(product_id)}><TiDeleteOutline size={36} /></div>
+                        <div className=' text-red-600 rounded-full cursor-pointer bg-amber-300' onClick={() => handleRemoveCart(product_id)}><TiDeleteOutline size={36} /></div>
                     </div>
                     <p className='mb-4 text-lg'>{description}</p>
                     <p className='text-xl font-semibold'>Price: {price}</p>
