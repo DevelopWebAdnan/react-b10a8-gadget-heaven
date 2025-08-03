@@ -1,17 +1,15 @@
-import React from 'react';
 import Heading from '../Heading/Heading';
 import 'react-tabs/style/react-tabs.css';
-import DashboardTabs from '../DashboardTabs/DashboardTabs';
 import { useLoaderData } from 'react-router-dom';
 import AddedGadgets from '../AddedGadgets/AddedGadgets';
 
 const Dashboard = () => {
-
     const allGadgets = useLoaderData();
     console.log(allGadgets);
 
     return (
         <div>
+            <title>Dashboard | Gadget Heaven</title>
             <div className="hero bg-purple-600">
                 <div className="hero-content">
                     <div className="max-w-6xl">

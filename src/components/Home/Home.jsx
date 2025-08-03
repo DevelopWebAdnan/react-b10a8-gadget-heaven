@@ -1,4 +1,3 @@
-
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
@@ -10,6 +9,7 @@ const Home = () => {
 
     return (
         <div>
+            <title>Gadgets | Gadget Heaven</title>
             <div className='mb-10 md:mb-96 lg:mb-80'>
                 <Banner></Banner>
             </div>
